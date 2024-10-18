@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Sidebar -->
+    <div class="flex">
+        <div class="w-1/5 bg-blue-900 text-white p-4 h-screen">
+            <div class="text-xl font-bold mb-8">Weather App</div>
+            <nav>
+                <ul>
+                    <li class="mb-4"><a href="index.html" class="text-lg">Dashboard</a></li>
+                    <li><a href="table.html" class="text-lg">Tables</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="w-4/5 p-6">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-6">
+                <input id="search-bar" type="text" placeholder="Enter city" class="p-2 border rounded w-2/3">
+                <button id="search-btn" class="bg-blue-500 text-white p-2 rounded">Get Weather</button>
+                <button id="toggle-btn" class="bg-blue-500 text-white p-2 rounded">Toggle °C/°F</button>
+                <div class="bg-gray-300 rounded-full w-12 h-12 flex items-center justify-center">User</div>
+            </div>
+
+            <!-- Weather Data -->
+            <div id="weather-data" class="bg-white p-4 shadow rounded mb-6">
+                <h2 class="text-xl font-bold mb-4">Weather Data Based on City</h2>
+                <p id="city-name" class="text-lg font-semibold"></p>
+                <p id="temperature" class="text-lg"></p>
+                <p id="weather-description" class="text-lg"></p>
+                <p id="humidity" class="text-lg"></p>
+                <p id="wind-speed" class="text-lg"></p>
+                <img id="weather-icon" class="w-20 h-20" src="" alt="Weather Icon">
+                <p id="error-message" class="text-red-500"></p>
+            </div>
+
+            <!-- Charts -->
+            <div class="grid grid-cols-3 gap-6">
+                <div class="h-64">
+                    <canvas id="bar-chart"></canvas>
+                </div>
+                <div class="h-64">
+                    <canvas id="doughnut-chart"></canvas>
+                </div>
+                <div class="h-64">
+                    <canvas id="line-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

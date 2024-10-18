@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast Table</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+    <div class="flex">
+        <nav class="w-1/5 bg-blue-900 text-white p-4 h-screen">
+            <div class="text-xl font-bold mb-8">Weather App</div>
+            <ul>
+                <li class="mb-4"><a href="index.html" class="block py-2">Dashboard</a></li>
+                <li><a href="table.html" class="block py-2">Table</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main content -->
+        <div class="w-4/5 p-6">
+            <!-- Search bar -->
+            <div class="flex justify-between items-center mb-6">
+                <input id="search-bar" type="text" placeholder="Search city..." class="w-2/3 p-2 border rounded">
+                <button onclick="fetchWeather()" class="bg-blue-500 text-white px-4 py-2 rounded">Search</button>
+            </div>
+
+            <!-- Error Message Display -->
+            <div id="error-message" class="text-red-500 mb-4 hidden"></div>
+
+            <!-- Filters and Sorting Buttons -->
+            <div class="mb-4 flex space-x-2">
+                <button id="sort-asc" class="bg-blue-500 text-white px-3 py-1 rounded">Sort Ascending</button>
+                <button id="sort-desc" class="bg-blue-500 text-white px-3 py-1 rounded">Sort Descending</button>
+                <button id="filter-rain" class="bg-blue-500 text-white px-3 py-1 rounded">Filter Rainy Days</button>
+                <button id="highest-temp" class="bg-blue-500 text-white px-3 py-1 rounded">Show Highest Temp</button>
+            </div>
+
+            <!-- Table for weather forecast -->
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-300">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-4 border-b">Date</th>
+                            <th class="py-2 px-4 border-b">Temperature (°C)</th>
+                            <th class="py-2 px-4 border-b">Weather</th>
+                            <th class="py-2 px-4 border-b">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="forecast-table">
+                        <!-- Table rows will be inserted dynamically -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="mt-4 flex justify-center">
+                <button id="prev-page" class="bg-blue-500 text-white px-3 py-1 rounded mx-1" disabled>Previous</button>
+                <button id="next-page" class="bg-blue-500 text-white px-3 py-1 rounded mx-1">Next</button>
+            </div>
+
+            <!-- Chatbot Interface -->
+            <div class="mt-8 p-4 bg-white shadow rounded">
+                <h2 class="text-lg font-bold mb-4">Chatbot</h2>
+                <div id="chatbot-messages" class="h-48 border border-gray-300 overflow-y-auto p-2 mb-2">
+                    <!-- Chatbot messages will be displayed here -->
+                </div>
+                <input id="chat-input" type="text" placeholder="Ask me anything..." class="w-4/5 p-2 border rounded">
+                <button id="chat-submit" class="bg-blue-500 text-white px-4 py-2 rounded">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load the script at the end -->
+    <script src="table.js"></script>
+</body>
+</html>
